@@ -1,16 +1,17 @@
-# This is a sample Python script.
+import time
+import tkinter as tk
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+window = tk.Tk()
+window.title("Digital Clock")
 
+time_label = tk.Label(window, font=("Helvetica", 48))
+time_label.pack(padx=50, pady=20)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def update_time():
+    current_time = time.strftime("%H:%M:%S")
+    time_label.config(text=current_time)
+    window.after(1000, update_time)
 
+update_time()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+window.mainloop()
